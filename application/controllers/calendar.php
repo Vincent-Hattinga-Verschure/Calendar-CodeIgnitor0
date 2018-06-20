@@ -46,7 +46,7 @@ class Calendar extends CI_Controller {
 
 		$data['birthdays'] = $this->calendar_model->get_birthday($id)[0];
 
-		var_dump($data);
+		// var_dump($data);
 
 
 		$this->load->view('calendar/update', $data);
