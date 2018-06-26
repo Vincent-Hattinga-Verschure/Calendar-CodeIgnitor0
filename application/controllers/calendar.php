@@ -5,13 +5,25 @@ class Calendar extends CI_Controller {
 
 	//------------------------------------------------------------------------------------------------------
 	//Create Functie.
-	public function create_birthday(){
+	public function create_birthday($data){
 
 		$this->load->model('calendar_model');
 
 		$this->load->view('calendar/create');
 
 }
+	//------------------------------------------------------------------------------------------------------
+	//Create Functie. BEZIG
+
+	public function save_create($data){
+
+		$this->load->model('calendar_model');
+
+		$this->calendar_model->save_create($data);
+		
+		$this->show();
+
+	}
 
 	//------------------------------------------------------------------------------------------------------
 	//Read Functie.
@@ -41,13 +53,10 @@ class Calendar extends CI_Controller {
 	//Edit Functie.
 
 	public function edit_birthdays($id){
-		
+
 		$this->load->model('calendar_model');
 
 		$data['birthdays'] = $this->calendar_model->get_birthday($id)[0];
-
-		// var_dump($data);
-
 
 		$this->load->view('calendar/update', $data);
 		
@@ -59,11 +68,12 @@ class Calendar extends CI_Controller {
 
 
 	public function edit_save($data){
+
+		$this->load->model('calendar_model');
+
+		$this->calendar_model->edit_save($data);
 		
-		$this->db->set('birthday', $data);
-
-
-		$this->db->insert('birthdays', $data);
+		$this->show();
 
 	}
 	//------------------------------------------------------------------------------------------------------

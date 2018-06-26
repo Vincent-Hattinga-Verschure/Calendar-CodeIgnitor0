@@ -2,15 +2,10 @@
 
 class Calendar_model extends CI_Model{
 	//------------------------------------------------------------------------------------------------------
-	//Create Functie
+	//Create Functie BEZIG
 	public function create_birthday($data){
 
 		$this->db->insert('birthdays', $data);
-
-
-		
-
-
 	}
 
 	//------------------------------------------------------------------------------------------------------
@@ -30,21 +25,30 @@ class Calendar_model extends CI_Model{
 
 	public function get_birthday($id){
 
-		$query = $this->db->get_where('birthdays', array("id" => $id));
+		$this->db->select('*');
+		$this->db->from('birthdays');
+		$this->db->where('id', $id);
+		$query = $this->db->get();
 
 		return $query->result();
 
 	}
 
+
+
 	//------------------------------------------------------------------------------------------------------
 	//Edit Functie
 
 	public function edit_birthdays($data, $id){
-		
-		$this->db->set(['id' => $id]);
-
-
+		$this->db->set('person', $data->person);
+		$this->db->where('id', $id);
 		$this->db->update('birthdays');
+
+
+		// $this->db->set(['id' => $id]);
+
+
+		// $this->db->update('birthdays');
 	}
 
 	//------------------------------------------------------------------------------------------------------
@@ -52,10 +56,18 @@ class Calendar_model extends CI_Model{
 
 //-----------------------BEZIG
 	public function edit_save($data){
+		$person =  $this->input->post('person');
+		$day = $this->input->post('day');
+		$month = $this->input->post('month');
+		$year = $this->input->post('year');
 
-		// $this->db->set('birthdays', $birthday);
-
-		$this->db->insert('birthdays', $data);
+		//UPDATE `birthdays` SET `person` = $person, `day` = $day, `month` = $month, `year` = $year WHERE `id` = ;
+		$this->db->set('person', $person);
+		$this->db->set('day', $day);
+		$this->db->set('month', $month);
+		$this->db->set('year', $year);
+		$this->db->where('id', $data);
+		$this->db->update('birthdays');
 
 	}
 

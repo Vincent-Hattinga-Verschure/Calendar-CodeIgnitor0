@@ -7,9 +7,8 @@ echo "<h1>" . "Edit birthday:" . "</h1>";
 <fieldset>
 
 <div class="container">
-    <form action="<?= "" ?>calendar/edit_save/<?= $birthdays->id;?>" method="post"> 
+    <form action="<?= "" ?>/Calendar-CodeIgnitor0/calendar/edit_save/<?= $birthdays->id;?>" method="post"> 
 <!---------------------------------------------------------------------------------------->
-
     <label>First Name</label><br>
     <input required type="text" name="person" placeholder="First Name" value="<?= $birthdays->person;?>"><br>
     <br>                                <!--VOORBEELD <?= $client['client_firstname'] ?> VOORBEELD-->
@@ -20,9 +19,7 @@ echo "<h1>" . "Edit birthday:" . "</h1>";
     <label>-</label>
     <input required type="number" name="year" min="1910" max="<?= date('Y');?>" placeholder="Year" value="<?= $birthdays->year;?>"><br><br>
 
-    <input type="hidden" name="id" value="<?= $birthdays->id;?>">
-
-    <input type="submit" name="submit" value="Update11 Client">
+    <input type="submit" name="submit" value="Update Client">
 
 
 </form>

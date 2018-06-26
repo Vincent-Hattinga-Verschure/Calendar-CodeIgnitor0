@@ -6,7 +6,7 @@ echo "<h1>" . "Create new birthday:" . "</h1>";
 <fieldset>
 
 <div class="container">
-    <form action="calendar/CreateExtra" method="post">
+    <form action="/Calendar-CodeIgnitor0/calendar/save_create/" method="post">
 
 <label>First Name</label><br>
 <input required type="text" name="person" placeholder="First Name"><br>
