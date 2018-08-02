@@ -3,9 +3,15 @@
 class Calendar_model extends CI_Model{
 	//------------------------------------------------------------------------------------------------------
 	//Create Functie BEZIG
-	public function create_birthday($data){
+	public function create_birthday($data, $count){
 
-		$this->db->insert('birthdays', $data);
+		$this->load->database();
+		
+		$count = $this->db->insert('birthdays', $data);
+
+
+
+		// $this->db->insert('birthdays', $data);
 	}
 
 	//------------------------------------------------------------------------------------------------------
@@ -23,7 +29,7 @@ class Calendar_model extends CI_Model{
 	//Get one birthday
 
 
-	public function get_birthday($id){
+	public function get_birthday(){
 
 		$this->db->select('*');
 		$this->db->from('birthdays');

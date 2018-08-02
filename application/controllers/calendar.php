@@ -5,21 +5,32 @@ class Calendar extends CI_Controller {
 
 	//------------------------------------------------------------------------------------------------------
 	//Create Functie.
-	public function create_birthday($data){
+	public function create_birthday(){
 
 		$this->load->model('calendar_model');
 
 		$this->load->view('calendar/create');
 
-}
-	//------------------------------------------------------------------------------------------------------
+	
+                  
+        // if($this->input->post("submit")){
+        //    $this->calendar_model->process();                
+        //    }
+        //    redirect(calendar/show);
+    }
+        
+
+    //function save(){
+//------------------------------------------------------------------------------------------------------
 	//Create Functie. BEZIG
 
-	public function save_create($data){
+	public function save_create(){
+
+		echo 'Je zit in de create_save functie';
 
 		$this->load->model('calendar_model');
 
-		$this->calendar_model->save_create($data);
+		$this->calendar_model->get_birthday();
 		
 		$this->show();
 
