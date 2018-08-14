@@ -3,7 +3,7 @@
 class Calendar_model extends CI_Model{
 	//------------------------------------------------------------------------------------------------------
 	//Create Functie BEZIG
-	public function create_birthday($data, $count){
+	public function create_birthday($data, $count, $id){
 
 		$this->load->database();
 		
@@ -14,10 +14,33 @@ class Calendar_model extends CI_Model{
 		// $this->db->insert('birthdays', $data);
 	}
 
+	  public function insert_item($data){
+
+    $person=$this->input->post('person');
+    $day=$this->input->post('day');
+    $month=$this->input->post('month');
+    $year=$this->input->post('year');
+
+    $data = array(
+            'person' => $person,
+            'day' 	=> $day,
+            'month' => $month,
+            'year' => $year
+        );
+        $this->db->insert('Calendar', $data);
+    }
+  
 	//------------------------------------------------------------------------------------------------------
 	//Show Functie
 
 	public function GetAll_birthdays(){
+
+
+		// if(!empty($this->input->get("search"))){
+  //         $this->db->like('title', $this->input->get("search"));
+  //         $this->db->or_like('description', $this->input->get("search")); 
+  //       }
+  //       $query = $this->db->get("items");
 
 		$query = $this->db->query("SELECT * FROM birthdays ORDER BY day, month, year" );
 
@@ -29,7 +52,7 @@ class Calendar_model extends CI_Model{
 	//Get one birthday
 
 
-	public function get_birthday(){
+	public function get_birthday($id){
 
 		$this->db->select('*');
 		$this->db->from('birthdays');
@@ -45,7 +68,7 @@ class Calendar_model extends CI_Model{
 	//------------------------------------------------------------------------------------------------------
 	//Edit Functie
 
-	public function edit_birthdays($data, $id){
+	public function edit_birthdays($data){
 		$this->db->set('person', $data->person);
 		$this->db->where('id', $id);
 		$this->db->update('birthdays');

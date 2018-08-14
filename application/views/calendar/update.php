@@ -32,4 +32,5 @@ echo "<h1>" . "Edit birthday:" . "</h1>";
 
 <br>
 <br>
-<a href="http://localhost/Calendar-CodeIgnitor0/calendar/show"  class="btn btn-primary">Back to home!</a>
+<a href="<?php echo base_url('/calendar/show/'); ?>" class="btn btn-primary">Back to home!</a>
+

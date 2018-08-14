@@ -11,6 +11,8 @@ class Calendar extends CI_Controller {
 
 		$this->load->view('calendar/create');
 
+		// $this->load->view('calandar/index');
+
 	
                   
         // if($this->input->post("submit")){
@@ -26,13 +28,17 @@ class Calendar extends CI_Controller {
 
 	public function save_create(){
 
-		echo 'Je zit in de create_save functie';
+		echo 'Je zit in de create_save functie!';
 
 		$this->load->model('calendar_model');
 
-		$this->calendar_model->get_birthday();
+		// $this->load->view('calandar/index');
+
+		$this->calendar_model->get_birthday($id);
 		
 		$this->show();
+
+
 
 	}
 
