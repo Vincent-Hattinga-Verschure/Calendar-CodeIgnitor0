@@ -6,7 +6,6 @@ class Calendar_model extends CI_Model{
 	public function create_birthday($data, $count, $id){
 
 		$this->load->database();
-		
 		$count = $this->db->insert('birthdays', $data);
 
 
@@ -14,7 +13,7 @@ class Calendar_model extends CI_Model{
 		// $this->db->insert('birthdays', $data);
 	}
 
-	public function insert_item($data){
+	public function insert_item($data){  
 
     $person=	$this->input->post('person');
     $day=		$this->input->post('day');
@@ -28,20 +27,12 @@ class Calendar_model extends CI_Model{
             'year' => $year
         );
         $this->db->insert('birthdays', $data);
-        // $this->db->insert('mytable', $data);
     }
   
 	//------------------------------------------------------------------------------------------------------
 	//Show Functie
 
 	public function GetAll_birthdays(){
-
-
-		// if(!empty($this->input->get("search"))){
-  //         $this->db->like('title', $this->input->get("search"));
-  //         $this->db->or_like('description', $this->input->get("search")); 
-  //       }
-  //       $query = $this->db->get("items");
 
 		$query = $this->db->query("SELECT * FROM birthdays ORDER BY day, month, year" );
 
@@ -56,8 +47,11 @@ class Calendar_model extends CI_Model{
 	public function get_birthday(){
 
 		$this->db->select('*');
+
 		$this->db->from('birthdays');
-		$this->db->where('id');
+
+		$this->db->where('id'); // Hier zou eigenlijk nog een $id tussen moeten maar krijg steeds foutmeldingen waardoor ik 'm weg gehaald heb.
+
 		$query = $this->db->get();
 
 		return $query->result();
@@ -70,15 +64,13 @@ class Calendar_model extends CI_Model{
 	//Edit Functie
 
 	public function edit_birthdays($data){
+
 		$this->db->set('person', $data->person);
+
 		$this->db->where('id', $id);
+
 		$this->db->update('birthdays');
 
-
-		// $this->db->set(['id' => $id]);
-
-
-		// $this->db->update('birthdays');
 	}
 
 	//------------------------------------------------------------------------------------------------------
@@ -86,12 +78,13 @@ class Calendar_model extends CI_Model{
 
 //-----------------------BEZIG
 	public function edit_save($data){
+
 		$person =  $this->input->post('person');
 		$day = $this->input->post('day');
 		$month = $this->input->post('month');
 		$year = $this->input->post('year');
 
-		//UPDATE `birthdays` SET `person` = $person, `day` = $day, `month` = $month, `year` = $year WHERE `id` = ;
+
 		$this->db->set('person', $person);
 		$this->db->set('day', $day);
 		$this->db->set('month', $month);
@@ -100,6 +93,8 @@ class Calendar_model extends CI_Model{
 		$this->db->update('birthdays');
 
 	}
+
+	//UPDATE `birthdays` SET `person` = $person, `day` = $day, `month` = $month, `year` = $year WHERE `id` = ;
 
 	//------------------------------------------------------------------------------------------------------
 	//Delete Functie
