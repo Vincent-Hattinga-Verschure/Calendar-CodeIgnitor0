@@ -14,12 +14,12 @@ class Calendar_model extends CI_Model{
 		// $this->db->insert('birthdays', $data);
 	}
 
-	  public function insert_item($data){
+	public function insert_item($data){
 
-    $person=$this->input->post('person');
-    $day=$this->input->post('day');
-    $month=$this->input->post('month');
-    $year=$this->input->post('year');
+    $person=	$this->input->post('person');
+    $day=		$this->input->post('day');
+    $month=		$this->input->post('month');
+    $year=		$this->input->post('year');
 
     $data = array(
             'person' => $person,
@@ -27,7 +27,8 @@ class Calendar_model extends CI_Model{
             'month' => $month,
             'year' => $year
         );
-        $this->db->insert('Calendar', $data);
+        $this->db->insert('birthdays', $data);
+        // $this->db->insert('mytable', $data);
     }
   
 	//------------------------------------------------------------------------------------------------------
@@ -52,11 +53,11 @@ class Calendar_model extends CI_Model{
 	//Get one birthday
 
 
-	public function get_birthday($id){
+	public function get_birthday(){
 
 		$this->db->select('*');
 		$this->db->from('birthdays');
-		$this->db->where('id', $id);
+		$this->db->where('id');
 		$query = $this->db->get();
 
 		return $query->result();

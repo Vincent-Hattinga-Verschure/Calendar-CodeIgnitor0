@@ -9,16 +9,7 @@ class Calendar extends CI_Controller {
 
 		$this->load->model('calendar_model');
 
-		$this->load->view('calendar/create');
-
-		// $this->load->view('calandar/index');
-
-	
-                  
-        // if($this->input->post("submit")){
-        //    $this->calendar_model->process();                
-        //    }
-        //    redirect(calendar/show);
+		$this->load->view('calendar/create');   		 
     }
         
 
@@ -28,15 +19,16 @@ class Calendar extends CI_Controller {
 
 	public function save_create(){
 
-		echo 'Je zit in de create_save functie!';
-
 		$this->load->model('calendar_model');
 
 		// $this->load->view('calandar/index');
 
-		$this->calendar_model->get_birthday($id);
-		
+		$this->calendar_model->get_birthday();
+
 		$this->show();
+
+
+		//redirect('calendar/show');
 
 
 
