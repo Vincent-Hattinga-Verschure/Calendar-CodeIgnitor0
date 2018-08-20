@@ -5,15 +5,12 @@
  	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
  	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap-themes.min.css');?>">
  	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style2.css');?>">
-
-
-
 </head>
 <body>
 
 		<div class="navbar navbar-default">
 		<div class="container">
-		<h2><span class="glyphicon glyphicon-calendar"></span>&nbsp;Welcome to the birthdate database!</h2>
+		<h2><span class="glyphicon glyphicon-calendar"></span>&nbsp;Welcome to the Calendar database!</h2>
 	</div>
 </div>
 <div class="container">
@@ -54,8 +51,6 @@
 
 ?>
 </table>
-
-
 
 </body>
 </html>

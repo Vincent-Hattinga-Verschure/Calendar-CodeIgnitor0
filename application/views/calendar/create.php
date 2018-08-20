@@ -4,6 +4,7 @@ echo "<h1>" . "Create new birthday:" . "</h1>";
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css');?>">
 
+
 <fieldset>
 
 <div class="container">
@@ -29,5 +30,5 @@ echo "<h1>" . "Create new birthday:" . "</h1>";
 </fieldset>
 <br>
 <br>
-<a href="http://localhost/Calendar-CodeIgnitor0/calendar/show" class="btn btn-primary" >Back to home!</a>
+<a href="http://localhost/Calendar-CodeIgnitor0/calendar/show">Back to home!</a>
 

@@ -4,8 +4,6 @@ echo "<h1>" . "Edit birthday:" . "</h1>";
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css');?>">
 
-
-
 <fieldset>
 
 <div class="container">
@@ -32,5 +30,4 @@ echo "<h1>" . "Edit birthday:" . "</h1>";
 
 <br>
 <br>
-<a href="<?php echo base_url('/calendar/show/'); ?>" class="btn btn-primary">Back to home!</a>
-
+<a href="http://localhost/Calendar-CodeIgnitor0/calendar/show"  class="btn btn-primary">Back to home!</a>

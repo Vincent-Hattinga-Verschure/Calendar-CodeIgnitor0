@@ -9,32 +9,25 @@ class Calendar extends CI_Controller {
 
 		$this->load->model('calendar_model');
 
-		$this->load->view('calendar/create');   		 
-    }
-        
+		$this->load->view('calendar/create');
 
-    //function save(){
-//------------------------------------------------------------------------------------------------------
+}
+	//------------------------------------------------------------------------------------------------------
 	//Create Functie. BEZIG
 
 	public function save_create(){
 
 		$this->load->model('calendar_model');
 
-		// $this->load->view('calandar/index');
-
-		$this->calendar_model->get_birthday();
-
+		$this->calendar_model->save_create();
+		
 		$this->show();
-
-
-		//redirect('calendar/show');
-
-
 
 	}
 
-	//------------------------------------------------------------------------------------------------------
+
+
+//------------------------------------------------------------------------------------------------------
 	//Read Functie.
 	public function show(){
 
@@ -87,16 +80,15 @@ class Calendar extends CI_Controller {
 	}
 	//------------------------------------------------------------------------------------------------------
 	//Delete Functie.
-
 	public function delete_birthday($id){
 
 		$this->load->model('calendar_model');
 
 		// pass the $id to the row_delete() method.
+
 		$this->calendar_model->delete_birthday($id);
 
 		redirect($_SERVER['HTTP_REFERER']);
-
 	}
 
 }
