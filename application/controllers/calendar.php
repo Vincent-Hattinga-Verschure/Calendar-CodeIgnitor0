@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Calendar extends CI_Controller {
 
 	//------------------------------------------------------------------------------------------------------
-	//Create Functie.
+	//Create Functie. Works
 	public function create_birthday(){
 
 		$this->load->model('calendar_model');
@@ -13,7 +13,7 @@ class Calendar extends CI_Controller {
 
 }
 	//------------------------------------------------------------------------------------------------------
-	//Create Functie. BEZIG
+	//Create Functie. Works
 
 	public function save_create(){
 
@@ -28,7 +28,7 @@ class Calendar extends CI_Controller {
 
 
 //------------------------------------------------------------------------------------------------------
-	//Read Functie.
+	//Read Functie. Works
 	public function show(){
 
 		$this->load->model('calendar_model');
@@ -40,19 +40,9 @@ class Calendar extends CI_Controller {
 
 	}
 
-	//------------------------------------------------------------------------------------------------------
-	//Get one birthday.
-
-	// public function show_birthday($id){
-
-	// 	$this->load->model('calendar_model');
-
-	// 	$this->load->view('calendar/index', $data);
-
-	// }
 
 	//------------------------------------------------------------------------------------------------------
-	//Edit Functie.
+	//Edit Functie. Works
 
 	public function edit_birthdays($id){
 
@@ -66,7 +56,7 @@ class Calendar extends CI_Controller {
 
 
 	//------------------------------------------------------------------------------------------------------
-	//Oplaan van data nadat de form in update form is aangepast. Functie.
+	//Edit function saves after editing. Works
 
 
 	public function edit_save($data){
@@ -79,7 +69,7 @@ class Calendar extends CI_Controller {
 
 	}
 	//------------------------------------------------------------------------------------------------------
-	//Delete Functie.
+	//Delete Functie. Does'nt work! Don't no Why!
 	public function delete_birthday($id){
 
 		$this->load->model('calendar_model');
