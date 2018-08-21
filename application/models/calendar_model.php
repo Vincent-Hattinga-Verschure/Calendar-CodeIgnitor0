@@ -2,16 +2,19 @@
 
 class Calendar_model extends CI_Model{
 	//------------------------------------------------------------------------------------------------------
-	//Create Functie BEZIG
+	//Create Function. Works
+
 	public function create_birthday($data){
+
 
 		$this->db->insert('birthdays', $data);
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	//Show Functie
+	//Show Function. Works
 
 	public function GetAll_birthdays(){
+
 
 		$query = $this->db->query("SELECT * FROM birthdays ORDER BY day, month, year" );
 
@@ -20,32 +23,41 @@ class Calendar_model extends CI_Model{
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	//Create Birthdate
+	//Create Birthdate. Works
+
+	public function save_create1(){  
 
 
-	public function save_create(){  
     $person=	$this->input->post('person');
+
     $day=		$this->input->post('day');
+
     $month=		$this->input->post('month');
+
     $year=		$this->input->post('year');
+
     $data = array(
             'person' => $person,
             'day' 	=> $day,
             'month' => $month,
             'year' => $year
         );
+
         $this->db->insert('birthdays', $data);
     }
 
 	//------------------------------------------------------------------------------------------------------
-	//Get birthdays
-
+	//Get birthdays. Works
 
 	public function get_birthday($id){
 
+
 		$this->db->select('*');
+
 		$this->db->from('birthdays');
+
 		$this->db->where('id', $id);
+
 		$query = $this->db->get();
 
 		return $query->result();
@@ -55,45 +67,54 @@ class Calendar_model extends CI_Model{
 
 
 	//------------------------------------------------------------------------------------------------------
-	//Edit Functie
+	//Edit Function. Works
 
 	public function edit_birthdays($data, $id){
+
+
 		$this->db->set('person', $data->person);
+		
 		$this->db->where('id', $id);
+		
 		$this->db->update('birthdays');
 
-
-		// $this->db->set(['id' => $id]);
-
-
-		// $this->db->update('birthdays');
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	//Save Functie
+	//Save Function. Works
 
-//-----------------------BEZIG
 	public function edit_save($data){
+
+
 		$person =  $this->input->post('person');
+
 		$day = $this->input->post('day');
+
 		$month = $this->input->post('month');
+
 		$year = $this->input->post('year');
 
-		//UPDATE `birthdays` SET `person` = $person, `day` = $day, `month` = $month, `year` = $year WHERE `id` = ;
 		$this->db->set('person', $person);
+
 		$this->db->set('day', $day);
+
 		$this->db->set('month', $month);
+
 		$this->db->set('year', $year);
+
 		$this->db->where('id', $data);
+
 		$this->db->update('birthdays');
 
 	}
 
 	//------------------------------------------------------------------------------------------------------
-	//Delete Functie
+	//Delete Function. Still working on!
+
 	public function delete_birthday($id){
 
-		$this->db->where(['id' => $id]);
+
+		$this->db->where('id', $id);
 
    		$this->db->delete('birthdays', $id); 
 	}

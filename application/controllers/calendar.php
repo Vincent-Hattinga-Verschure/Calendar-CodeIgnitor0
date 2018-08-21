@@ -4,8 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Calendar extends CI_Controller {
 
 	//------------------------------------------------------------------------------------------------------
-	//Create Functie. Works
+	//Create Function. Works
+
 	public function create_birthday(){
+
 
 		$this->load->model('calendar_model');
 
@@ -13,13 +15,14 @@ class Calendar extends CI_Controller {
 
 }
 	//------------------------------------------------------------------------------------------------------
-	//Create Functie. Works
+	//Create Function. Works
 
 	public function save_create(){
 
+
 		$this->load->model('calendar_model');
 
-		$this->calendar_model->save_create();
+		$this->calendar_model->save_create1();
 		
 		$this->show();
 
@@ -27,24 +30,26 @@ class Calendar extends CI_Controller {
 
 
 
-//------------------------------------------------------------------------------------------------------
-	//Read Functie. Works
+	//------------------------------------------------------------------------------------------------------
+	//Read Function. Works
+
 	public function show(){
+
 
 		$this->load->model('calendar_model');
 
 		$data['birthdays'] = $this->calendar_model->GetAll_birthdays();
 
-	
 		$this->load->view('calendar/index', $data);
 
 	}
 
 
 	//------------------------------------------------------------------------------------------------------
-	//Edit Functie. Works
+	//Edit Function. Works
 
 	public function edit_birthdays($id){
+
 
 		$this->load->model('calendar_model');
 
@@ -58,8 +63,8 @@ class Calendar extends CI_Controller {
 	//------------------------------------------------------------------------------------------------------
 	//Edit function saves after editing. Works
 
-
 	public function edit_save($data){
+
 
 		$this->load->model('calendar_model');
 
@@ -68,13 +73,14 @@ class Calendar extends CI_Controller {
 		$this->show();
 
 	}
+
 	//------------------------------------------------------------------------------------------------------
-	//Delete Functie. Does'nt work! Don't no Why!
+	//Delete Function. Does'nt work! Don't know Why!
+
 	public function delete_birthday($id){
 
-		$this->load->model('calendar_model');
 
-		// pass the $id to the row_delete() method.
+		$this->load->model('calendar_model');
 
 		$this->calendar_model->delete_birthday($id);
 
@@ -82,6 +88,5 @@ class Calendar extends CI_Controller {
 	}
 
 }
-
 
 ?>
